@@ -31,7 +31,8 @@ def main():
 
     # You will implement these methods below. They just print TO-DO messages for now.
     load_and_clean_users('../../resources/users.csv')
-    load_and_clean_call_logs('../../resources/callLogs.csv')
+    # load_and_clean_call_logs('../../resources/callLogs.csv')
+    load_and_clean_call_logs('../test/testCallLogs.csv')
     write_user_analytics('../../resources/userAnalytics.csv')
     write_ordered_calls('../../resources/orderedCalls.csv')
 
@@ -70,20 +71,22 @@ def load_and_clean_call_logs(file_path):
     with open(file_path, "r") as call_logs:
         reader = csv.DictReader(call_logs)
         
-        expected_fields = ["phoneNumber" ,"startTime","endTime", "direction","userId"]
+        expected_fields = ["userId", "avgDuration", "numCallsnumCalls"]
 
         for row_num, row in enumerate(reader, start=1):
+            print(row)
+
             is_incomplete = any(
-                row.get(field) is None or str(row.get(field)).strip() == "" or row.get("endTime").isdigit() == False or row.get("startTime").isdigit() == False
+                row.get(field) is None or str(row.get(field)).strip() == "" 
                 for field in expected_fields
                 )
 
             if (is_incomplete):
                 continue
 
-            # print(row)
             
-            cursor.execute("INSERT INTO callLogs VALUES (?, ?, ?, ?, ?, ?)", (row_num, row["phoneNumber"], row["startTime"], row["endTime"], row["direction"], row["userId"]))
+            
+            cursor.execute("INSERT INTO callLogs VALUES (?, ?, ?)", (row_num, row["userId"], row["avgDuration"], row["numCalls"]))
 
 
 # This function will write analytics data to testUserAnalytics.csv - average call time, and number of calls per user.
