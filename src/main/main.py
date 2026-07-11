@@ -55,7 +55,7 @@ def load_and_clean_users(file_path):
 
         for row_num, row in enumerate(reader, start=1):
             is_incomplete = any(
-                row.get(field) is None or str(row.get(field)).strip() == ""
+                row.get(field) is None or str(row.get(field)).strip() == "" or str(row.get(field)).strip() == "####"
                 for field in expected_fields
                 )
             
@@ -67,8 +67,23 @@ def load_and_clean_users(file_path):
 
 # This function will load the callLogs.csv file into the callLogs table, discarding any records with incomplete data
 def load_and_clean_call_logs(file_path):
+    with open(file_path, "r") as call_logs:
+        reader = csv.DictReader(call_logs)
+        
+        expected_fields = ["phoneNumber" ,"startTime","endTime", "direction","userId"]
 
-    print("TODO: load_call_logs")
+        for row_num, row in enumerate(reader, start=1):
+            is_incomplete = any(
+                row.get(field) is None or str(row.get(field)).strip() == "" or row.get("endTime").isdigit() == False or row.get("startTime").isdigit() == False
+                for field in expected_fields
+                )
+
+            if (is_incomplete):
+                continue
+
+            # print(row)
+            
+            cursor.execute("INSERT INTO callLogs VALUES (?, ?, ?, ?, ?, ?)", (row_num, row["phoneNumber"], row["startTime"], row["endTime"], row["direction"], row["userId"]))
 
 
 # This function will write analytics data to testUserAnalytics.csv - average call time, and number of calls per user.
