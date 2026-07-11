@@ -77,14 +77,12 @@ def load_and_clean_call_logs(file_path):
             print(row)
 
             is_incomplete = any(
-                row.get(field) is None or str(row.get(field)).strip() == "" 
+                row.get(field) is None or str(row.get(field)).strip() == "" or row.get("numCalls").isdigit() == False
                 for field in expected_fields
                 )
 
             if (is_incomplete):
                 continue
-
-            
             
             cursor.execute("INSERT INTO callLogs VALUES (?, ?, ?)", (row_num, row["userId"], row["avgDuration"], row["numCalls"]))
 
