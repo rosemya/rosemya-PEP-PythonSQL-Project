@@ -71,7 +71,7 @@ def load_and_clean_call_logs(file_path):
     with open(file_path, "r") as call_logs:
         reader = csv.DictReader(call_logs)
         
-        expected_fields = ["userId", "avgDuration", "numCallsnumCalls"]
+        expected_fields = ["userId", "avgDuration", "numCalls"]
 
         for row_num, row in enumerate(reader, start=1):
             print(row)
