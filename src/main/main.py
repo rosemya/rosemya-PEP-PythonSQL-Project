@@ -55,7 +55,7 @@ def load_and_clean_users(file_path):
 
         for row_num, row in enumerate(reader, start=1):
             is_incomplete = any(
-                row.get(field) is None or str(row.get(field)).strip() == "" or str(row.get(field)).strip() == "####"
+                row.get(field) is None or str(row.get(field)).strip() == ""
                 for field in expected_fields
                 )
             
@@ -73,13 +73,13 @@ def load_and_clean_call_logs(file_path):
         expected_fields = ["phoneNumber" ,"startTime","endTime", "direction","userId"]
 
         for row_num, row in enumerate(reader, start=1):
-            # is_incomplete = any(
-            #     row.get(field) is None or str(row.get(field)).strip() == "" or row.get("endTime").isdigit() == False or row.get("startTime").isdigit() == False
-            #     for field in expected_fields
-            #     )
+            is_incomplete = any(
+                row.get(field) is None or str(row.get(field)).strip() == "" or row.get("endTime").isdigit() == False or row.get("startTime").isdigit() == False
+                for field in expected_fields
+                )
 
-            # if (is_incomplete):
-            #     continue
+            if (is_incomplete):
+                continue
 
             # print(row)
             
