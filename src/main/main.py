@@ -103,7 +103,7 @@ def write_user_analytics(csv_file_path):
 def write_ordered_calls(csv_file_path):
     with open(csv_file_path, "w") as csv_file:
         csv_file.write("phoneNumber, startTime, endTime, direction, userId\n")
-        csv_file.write("1, 1.1, 5, inbound, 1\n")
+        csv_file.write("1,1.1,5,inbound,1\n")
         csv_file.write("3, 2.1, 5, inbound, 7\n")
         csv_file.write("5, 3.1, 5, inbound, 3\n")
         csv_file.write("7, 4.1, 5, inbound, 5\n")
