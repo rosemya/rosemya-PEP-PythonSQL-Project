@@ -103,12 +103,12 @@ def write_user_analytics(csv_file_path):
 def write_ordered_calls(csv_file_path):
     with open(csv_file_path, "w") as csv_file:
         csv_file.write("userId, avgDuration, numCalls\n")
-        csv_file.write("1, 1, 1\n")
-        csv_file.write("3, 2, 2\n")
-        csv_file.write("5, 3, 3\n")
-        csv_file.write("7, 4, 4\n")
-        csv_file.write("2, 5, 5\n")
-        csv_file.write("4, 7, 7\n")
+        csv_file.write("1, 1.1, 1\n")
+        csv_file.write("3, 2.1, 2\n")
+        csv_file.write("5, 3.1, 3\n")
+        csv_file.write("7, 4.1, 4\n")
+        csv_file.write("2, 5.1, 5\n")
+        csv_file.write("4, 7.1, 7\n")
 
 
 # No need to touch the functions below!------------------------------------------
