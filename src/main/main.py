@@ -76,7 +76,7 @@ def load_and_clean_call_logs(file_path):
         for row_num, row in enumerate(reader, start=1):
 
             is_incomplete = any(
-                row.get(field) is None or str(row.get(field)).strip() == ""
+                row.get(field) is None or str(row.get(field)).strip() == "" or row.get("endTime").isdigit() == False
                 for field in expected_fields
                 )
 
