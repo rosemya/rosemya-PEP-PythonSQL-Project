@@ -83,7 +83,7 @@ def load_and_clean_call_logs(file_path):
             if (is_incomplete):
                 continue
             
-            print(row)
+            # print(row)
 
             cursor.execute("INSERT INTO callLogs VALUES (?, ?, ?, ?, ?, ?)", (row_num, row["phoneNumber"], row["startTime"],row["endTime"], row["direction"], row["userId"]))
 
