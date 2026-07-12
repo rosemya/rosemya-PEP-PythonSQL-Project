@@ -71,7 +71,7 @@ def load_and_clean_call_logs(file_path):
     with open(file_path, "r") as call_logs:
         reader = csv.DictReader(call_logs)
         
-        expected_fields = ["userId", "avgDuration", "numCalls"]
+        expected_fields = ["callId", "phoneNumber", "startTime", "endTime", "direction", "userId"]
 
         for row_num, row in enumerate(reader, start=1):
             print(row)
@@ -84,7 +84,7 @@ def load_and_clean_call_logs(file_path):
             if (is_incomplete):
                 continue
             
-            cursor.execute("INSERT INTO callLogs VALUES (?, ?, ?)", (row_num, row["userId"], row["avgDuration"], row["numCalls"]))
+            cursor.execute("INSERT INTO callLogs VALUES (?, ?, ?, ?, ?, ?)", (row_num, row["phoneNumber"], row["startTime"],row["endTime"], row["direction"], row["userId"]))
 
 
 # This function will write analytics data to testUserAnalytics.csv - average call time, and number of calls per user.
