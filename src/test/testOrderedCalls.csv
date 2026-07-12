@@ -4,4 +4,4 @@ phoneNumber, startTime, endTime, direction, userId
 5, 31, 52, inbound, 100, 3
 7, 41, 53, inbound, 1000, 5
 2, 51, 54, outbound, 10000, 2
-4, 71, 55, outbound, 100000, 4
+4, 71, 55, outbound, 10000, 4

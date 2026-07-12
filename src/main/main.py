@@ -108,7 +108,7 @@ def write_ordered_calls(csv_file_path):
         csv_file.write("5, 31, 52, inbound, 100, 3\n")
         csv_file.write("7, 41, 53, inbound, 1000, 5\n")
         csv_file.write("2, 51, 54, outbound, 10000, 2\n")
-        csv_file.write("4, 71, 55, outbound, 100000, 4\n")
+        csv_file.write("4, 71, 55, outbound, 10000, 4\n")
 
 
 # No need to touch the functions below!------------------------------------------
