@@ -1,4 +1,4 @@
-userId, avgDuration, numCalls
+phoneNumber, startTime, endTime, direction, userId
 1, 1.1, 5, inbound, 1
 3, 2.1, 5, inbound, 2
 5, 3.1, 5, inbound, 3
