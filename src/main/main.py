@@ -104,11 +104,11 @@ def write_ordered_calls(csv_file_path):
     with open(csv_file_path, "w") as csv_file:
         csv_file.write("phoneNumber, startTime, endTime, direction, userId\n")
         csv_file.write("1, 11, 5, inbound, 1, 1\n")
-        csv_file.write("3, 21, 51, inbound, 10, 7\n")
-        csv_file.write("5, 31, 52, inbound, 100, 3\n")
-        csv_file.write("7, 41, 53, inbound, 1000, 5\n")
-        csv_file.write("2, 51, 54, outbound, 10000, 2\n")
-        csv_file.write("4, 71, 55, outbound, 10000, 4\n")
+        csv_file.write("3, 21, 51, inbound, 1, 7\n")
+        csv_file.write("5, 31, 52, inbound, 1, 3\n")
+        csv_file.write("7, 41, 53, inbound, 1, 5\n")
+        csv_file.write("2, 51, 54, outbound, 1, 2\n")
+        csv_file.write("4, 71, 55, outbound, 1, 4\n")
 
 
 # No need to touch the functions below!------------------------------------------
