@@ -83,7 +83,7 @@ def load_and_clean_call_logs(file_path):
             if (is_incomplete):
                 continue
 
-            #cursor.execute("INSERT INTO callLogs (callId, phoneNumber, startTime, endTime, direction, userId) VALUES (?, ?, ?, ?, ?, ?)", (row_num, row["phoneNumber"], row["startTime"],row["endTime"], row["direction"], row["userId"]))
+            cursor.execute("INSERT INTO callLogs (callId, phoneNumber, startTime, endTime, direction, userId) VALUES (?, ?, ?, ?, ?, ?)", (row_num, row["phoneNumber"], row["startTime"],row["endTime"], row["direction"], row["userId"]))
             
 
 # This function will write analytics data to testUserAnalytics.csv - average call time, and number of calls per user.
