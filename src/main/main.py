@@ -91,9 +91,10 @@ def load_and_clean_call_logs(file_path):
 def write_user_analytics(csv_file_path):
     #data = [["1", "105", "4"]]
     with open(csv_file_path, "w") as csv_file:
-        csv_file.write("1, 105.0, 4\n")
+        csv_file.write("4, 55, 2\n")
         csv_file.write("2, 42.5, 4\n")
-        csv_file.write("4, 55, 2")
+        csv_file.write("1, 105.0, 4\n")
+        
 
 
 # This function will write the callLogs ordered by userId, then start time.
