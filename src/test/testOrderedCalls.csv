@@ -1,2 +1,7 @@
-callId,phoneNumber,startTime,endTime,direction,userId
-
+userId, avgDuration, numCalls
+1, 1, 1
+3, 2, 2
+5, 3, 3
+7, 4, 4
+2, 5, 5
+4, 7, 7
