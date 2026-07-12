@@ -74,7 +74,6 @@ def load_and_clean_call_logs(file_path):
         expected_fields = ["callId", "phoneNumber", "startTime", "endTime", "direction", "userId"]
 
         for row_num, row in enumerate(reader, start=1):
-            print(row)
 
             is_incomplete = any(
                 row.get(field) is None or str(row.get(field)).strip() == "" or row.get("numCalls").isdigit() == False
@@ -84,6 +83,8 @@ def load_and_clean_call_logs(file_path):
             if (is_incomplete):
                 continue
             
+            print(row)
+
             cursor.execute("INSERT INTO callLogs VALUES (?, ?, ?, ?, ?, ?)", (row_num, row["phoneNumber"], row["startTime"],row["endTime"], row["direction"], row["userId"]))
 
 
